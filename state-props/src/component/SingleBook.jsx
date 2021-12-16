@@ -4,7 +4,13 @@ import{Card, Button, Container, Row, Col} from "react-bootstrap"
 
 
 class SingleBook extends Component{
+    state={
+        toggleSelect:false
+    }
 
+    toggleClass=(e)=>(
+        this.toggleSelect? this.setState({toggleSelect:true}):this.setState({toggleSelect:true})
+    )
     render(){
         return(
             (
@@ -12,7 +18,7 @@ class SingleBook extends Component{
                    <Row className="d-flex justify-content-center">
                        <Col >
                        <Card style={{ width: '18rem' }} className="text-center">
-                <Card.Img variant="top" src={this.props.book.img} />
+                <Card.Img onClick={this.toggleClass} variant="top" src={this.props.book.img} />
                 <Card.Body>
                     <Card.Title>{this.props.book.title}</Card.Title>
                     <Card.Text>
