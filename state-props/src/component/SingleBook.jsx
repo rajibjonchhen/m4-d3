@@ -1,3 +1,4 @@
+import React from 'react';
 
 import{Component} from "react"
 import{Card, Button, Container, Row, Col} from "react-bootstrap"
@@ -5,20 +6,21 @@ import{Card, Button, Container, Row, Col} from "react-bootstrap"
 
 class SingleBook extends Component{
     state={
-        toggleSelect:false
+        selected:false
     }
 
-    toggleClass=(e)=>(
-        this.toggleSelect? this.setState({toggleSelect:true}):this.setState({toggleSelect:true})
-    )
+    // toggleClass=(e)=>(
+    //     this.toggleSelect? this.setState({toggleSelect:true}):this.setState({toggleSelect:true})
+    // )
     render(){
         return(
             (
-               <Container>
+               <Container key={this.props.book.id}>
                    <Row className="d-flex justify-content-center">
                        <Col >
-                       <Card style={{ width: '18rem' }} className="text-center">
-                <Card.Img onClick={this.toggleClass} variant="top" src={this.props.book.img} />
+                       <Card onClick={()=>this.setState({selected: !this.state.selected})}
+                        style={{border:this.state.selected? "5px solid red":"none", width:"15rem"}} className="text-center m-3">
+                <Card.Img  variant="top" src={this.props.book.img} />
                 <Card.Body>
                     <Card.Title>{this.props.book.title}</Card.Title>
                     <Card.Text>

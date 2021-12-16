@@ -15,9 +15,9 @@ function App() {
   return (
     <div className="App">
       
-      <MyWarning warning="This girl is on fire" color="danger"/>
-      <MyBadges Mytext="Buy The Latest Book"  color="warning" />
-      <SingleBook book={scifiBooks[0]}/>
+      <MyWarning warning="This Book is on High Demand" color="info"/>
+      <MyBadges Mytext="Buy The Latest Book"  color="danger" />
+      <SingleBook className="singlBook" book={scifiBooks[0]}/>
       <BookList books={scifiBooks}/>
     </div>
   );

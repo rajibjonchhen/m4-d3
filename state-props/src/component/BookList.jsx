@@ -11,7 +11,7 @@ class BookList extends Component{
     
 render(){
     return(
-        <Container >
+        <Container>
            <Form className="d-flex m-3">
   <FormControl
       type="search"
@@ -29,7 +29,7 @@ render(){
             <Row>
             {
                   this.props.books.filter(book=>book.title.toLowerCase().includes(this.state.search.toLowerCase())).map((book)=>(
-                    <Col key={book.id} >
+                    <Col sm={12} md={6} lg={4} key={book.id} >
                     <SingleBook book={book}/>
                 </Col>))
             }
